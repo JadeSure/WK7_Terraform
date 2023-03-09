@@ -31,6 +31,7 @@ resource "aws_api_gateway_integration" "api_gateway_integration" {
   uri         = var.lambda_functions_invoke_arn[count.index]
 }
 
+# ====================================
 resource "aws_api_gateway_method_response" "response_200" {
   count       = length(var.api_gateway_resource_name)
   rest_api_id = aws_api_gateway_rest_api.api_gateway.id
@@ -56,7 +57,7 @@ resource "aws_api_gateway_integration_response" "integration_response" {
     aws_api_gateway_integration.api_gateway_integration
   ]
 }
-
+# ============================================
 resource "aws_api_gateway_deployment" "deployment" {
   depends_on = [
     aws_api_gateway_integration.api_gateway_integration
