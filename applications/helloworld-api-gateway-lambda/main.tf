@@ -13,6 +13,7 @@ module "helloworld-lambda" {
   aws_iam_role_name         = "LambdaWithApiGateway"
   s3_bucket_name            = "petlover-tf-lambda"
   lambda_zipfile_name       = ["helloworld.zip", "lookup.zip"] // must be loaded to your s3 bucket before run terraform apply
+  #  lambda_handler name should be same as the zip file name
   lambda_handler =  ["index_homework.handler", "index_getname.handler"]
   lambda_description = ["helloworld lambda", "lookup only lambda"]
   api_gateway_execution_arn = module.helloworld-apigateway.api_gateway_execution_arn
