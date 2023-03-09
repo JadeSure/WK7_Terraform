@@ -17,9 +17,9 @@ provider "aws" {
 terraform {
     backend "s3" {
         encrypt              = true
-        bucket               = "tfstate-willido"
+        bucket               = "petlover-tf-state-test"
         region               = "ap-southeast-2"
         key                  = "example-tf.tfstate"
-        profile              = "default"
+        # profile              = "default"
     }
 }
